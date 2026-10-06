@@ -27,8 +27,8 @@
     </dl>
 
     <h2 id="about-purpose-title">About the project</h2>
-    <p>The Welcome page shows tasks scheduled for today. All Tasks shows the complete list, and Profile displays one demo user.</p>
+    <p>The Welcome page shows today's active tasks. All Tasks lists the current schedule, and Profile displays one demo user. Visitors can read these pages without signing in.</p>
 
     <h2>How it works</h2>
-    <p>CodeIgniter 4 connects the routes, controllers, models, and views. MySQL stores the task and user records shown on the pages.</p>
+    <p>CodeIgniter 4 connects the routes, controllers, models, and views. MySQL stores the task and user records. Signed-in users can add, edit, and archive tasks; archived records stay in the database but leave the public lists.</p>
 </section>

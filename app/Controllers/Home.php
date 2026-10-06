@@ -18,6 +18,7 @@ class Home extends BaseController
             'todayLabel' => $today->format('l, F j, Y'),
             'tasks'      => $taskModel
                 ->where('task_date', $today->format('Y-m-d'))
+                ->where('is_archived', 0)
                 ->orderBy('id', 'ASC')
                 ->findAll(),
         ];

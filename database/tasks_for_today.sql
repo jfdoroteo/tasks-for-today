@@ -8,7 +8,8 @@ CREATE TABLE tasks (
     title VARCHAR(150) NOT NULL,
     status VARCHAR(20) NOT NULL DEFAULT 'pending',
     task_date DATE NOT NULL,
-    created_at DATETIME NOT NULL
+    created_at DATETIME NOT NULL,
+    is_archived TINYINT(1) NOT NULL DEFAULT 0
 );
 
 CREATE TABLE users (
@@ -16,6 +17,7 @@ CREATE TABLE users (
     username VARCHAR(50) NOT NULL UNIQUE,
     full_name VARCHAR(100) NOT NULL,
     email VARCHAR(100) NOT NULL,
+    password_hash VARCHAR(255),
     created_at DATETIME NOT NULL
 );
 
@@ -30,5 +32,5 @@ INSERT INTO tasks (title, status, task_date, created_at) VALUES
     ('Draft next week''s plan', 'pending', CURDATE() + INTERVAL 1 DAY, NOW()),
     ('Organize team files', 'pending', CURDATE() + INTERVAL 1 DAY, NOW());
 
-INSERT INTO users (username, full_name, email, created_at) VALUES
-    ('johnhenrichdoroteo-ui', 'John Henrich Doroteo', 'johnhenrichdoroteo@gmail.com', NOW());
+INSERT INTO users (username, full_name, email, password_hash, created_at) VALUES
+    ('johnhenrichdoroteo-ui', 'John Henrich Doroteo', 'johnhenrichdoroteo@gmail.com', '$2y$10$uBk6IJh/bcCowWp4he1zzuFhtewZp4E729ahayJpuNlE66BYnV2tG', NOW());

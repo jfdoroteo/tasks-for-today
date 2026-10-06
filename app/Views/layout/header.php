@@ -15,6 +15,15 @@
                 <a class="<?= $activePage === 'tasks' ? 'active' : '' ?>" href="<?= base_url('tasks') ?>" <?= $activePage === 'tasks' ? 'aria-current="page"' : '' ?>>All tasks</a>
                 <a class="<?= $activePage === 'profile' ? 'active' : '' ?>" href="<?= base_url('profile') ?>" <?= $activePage === 'profile' ? 'aria-current="page"' : '' ?>>Profile</a>
                 <a class="<?= $activePage === 'about' ? 'active' : '' ?>" href="<?= base_url('about') ?>" <?= $activePage === 'about' ? 'aria-current="page"' : '' ?>>About</a>
+                <?php if (session('task_user_id')): ?>
+                    <a class="nav-manage" href="<?= site_url('tasks/new') ?>">New task</a>
+                    <form class="nav-logout" method="post" action="<?= site_url('logout') ?>">
+                        <?= csrf_field() ?>
+                        <button type="submit">Log out</button>
+                    </form>
+                <?php else: ?>
+                    <a class="nav-manage <?= $activePage === 'login' ? 'active' : '' ?>" href="<?= site_url('login') ?>">Sign in</a>
+                <?php endif; ?>
             </nav>
         </div>
     </header>
